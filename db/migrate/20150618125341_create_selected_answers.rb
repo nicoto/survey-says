@@ -7,5 +7,7 @@ class CreateSelectedAnswers < ActiveRecord::Migration
 
       t.timestamps
     end
+
+    add_index :selected_answers, [:user_id, :question_id], unique: true
   end
 end
