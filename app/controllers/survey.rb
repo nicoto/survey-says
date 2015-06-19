@@ -9,17 +9,17 @@
 end
 
 get '/survey/new' do
-  erb :'/survey/new'
+  erb :'/survey/show'
 end
 
-post '/survey/new' do
+post '/survey' do
   p params
   survey = Survey.new(name: params[:name])
   if survey.save
     redirect '/survey'
   else
     @error = "Entry invalid"
-    erb :"/survey/new"
+    erb :"/survey/show"
   end
 end
 

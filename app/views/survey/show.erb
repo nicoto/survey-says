@@ -1,6 +1,7 @@
 
+<%= erb :'/partials/_new_survey' %>
 <div class='survey_list'>
-  <h1> List of available surveys</h1>
+  <h2> List of available surveys</h2>
 
   <% @surveys.each do |survey| %>
   <article>
@@ -9,9 +10,5 @@
   <a href="/survey/<%= survey.id %>"></a>
   <% end %>
   </article>
-
-</div>
-<div class="survey_nav">
-  <a href="/survey/new">Create a new Survey</a>
 
 </div>
