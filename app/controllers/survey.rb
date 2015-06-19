@@ -25,21 +25,20 @@ end
 
 get '/survey/:id' do
   @survey = Survey.find(params[:id])
-  @questions = Question.where(survey_id: @survey.id)
+  @questions = @survey.questions
   erb :"survey/show"
 end
 
 post '/survey/:id' do
-  content_type :json
-  @question = Question.new(question: params[:question], survey_id: params[:survey_id])
-  if @question.save
-    @Answer1 = Answer.create(question_id: @question.id, content: params[:ans1])
-    @Answer2 = Answer.create(question_id: @question.id, content: params[:ans2])
-    response_value = {question: @question, ans1: @Answer1, ans2: @Answer2}.to_json
+  question = Question.new(question: params[:question], survey_id: params[:survey_id])
+  if question.save
+    Answer.create!(question_id: question.id, content: params[:ans1])
+    Answer.create!(question_id: question.id, content: params[:ans2])
+    erb :"survey/_list_question", locals:{ question: question }, layout: false
   else
-    response_value = "im not really good at this......".to_json
+    status 400
+    question.errors.full_messages.join("\n")
   end
-  return response_value
 end
 
 
