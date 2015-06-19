@@ -4,7 +4,7 @@
   p params
   if Survey.any?
     @surveys = Survey.all
-    erb :'/survey/show'
+    erb :'/survey/list'
   end
 end
 
@@ -21,6 +21,12 @@ post '/survey/new' do
     @error = "Entry invalid"
     erb :"/survey/new"
   end
+end
+
+get '/survey/:id' do
+  @survey = Survey.find(params[:id])
+  @questions = Question.where(survey_id: @survey.id)
+  erb :"survey/show"
 end
 
 

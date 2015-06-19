@@ -7,7 +7,7 @@ post '/signin' do
   @user = User.where(username: params[:username]).first if params[:username]
   if @user && @user.password_hash == params[:password_hash]
     session[:user_id] = @user.id
-    redirect to '/'
+    redirect to '/survey'
   end
   @errors = "Your login info was incorrect! Please try again!"
   erb :signin
