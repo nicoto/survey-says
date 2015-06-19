@@ -1,9 +1,17 @@
+
 <div class='survey_list'>
   <h1> List of available surveys</h1>
 
   <% @surveys.each do |survey| %>
   <article>
     <a href= "/survey/<%= survey.id %>" > <%= survey.name %> </a>
+      <!-- if user.id == survey.user_id -->
+  <a href="/survey/<%= survey.id %>"></a>
   <% end %>
   </article>
+
+</div>
+<div class="survey_nav">
+  <a href="/survey/new">Create a new Survey</a>
+
 </div>
