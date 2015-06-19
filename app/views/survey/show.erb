@@ -1,24 +1,23 @@
-  <div class="new_question">
+<div class="new_question">
   <h1> <%= @survey.name %> </h1>
-<% if current_user.id == @survey.user_id %>
+  <% if current_user.id == @survey.user_id %>
   <h2>Create a new survey!</h2>
 
-  <form class="add_question" method="post" action="/question" >
+  <form class="add_question" method="post" action="/survey/<%= @survey.id %>" >
     <input type="text" name="question" placeholder="Enter Question You Wish to Add!" >
     <input type="hidden" name="ans1" value="Yes!">
     <input type="hidden" name="ans2" value="No!">
     <input type="hidden" name="survey_id" value="<%= @survey.id %>">
-    <input type="submit" value="Add Question" >
+    <input type="submit" value="Add Question" id="question_submit_BTN">
   </form>
-  <% else %>
-
-
-  <% @questions.each do |question|%>
-    <li> <%=  question.question%> </li>
-         <% question.answers.each do |answer|  %>
-          <ul><input type="radio" name="<%=question.id%>" value="<%= answer.content%>"> <%= answer.content%></ul>
-        <% end %>
   <% end %>
-<% end %>
-  </div>
+</div>
+<div >
+  <% @questions.each do |question|%>
+  <li> <%=  question.question%> </li>
+  <% question.answers.each do |answer|  %>
+  <ul><input type="radio" name="<%=question.id%>" value="<%= answer.content%>"> <%= answer.content%></ul>
+  <% end %>
+  <% end %>
+</div>
 <!-- Answer.where(question_id: question.id) -->

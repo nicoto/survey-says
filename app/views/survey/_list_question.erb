@@ -1,0 +1,10 @@
+<div class="list_question">
+  <li> <%= question.question %> </li>
+  <% question.answers.each do |answer|  %>
+    <ul>
+      <input type="radio" name="<%=question.id%>" value="<%= answer.content%>">
+        <%= answer.content%>
+      </input>
+    </ul>
+  <% end %>
+</div>
