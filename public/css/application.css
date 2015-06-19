@@ -1,0 +1,35 @@
+.container {
+  width: 100%;
+}
+
+#home {
+  margin: 0 auto;
+  width: 500px;
+  padding-top: 140px;
+}
+
+.home_image {
+  display: block;
+  width: 425px;
+}
+
+.signup {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+h1 {
+  text-align: center;
+  text-decoration: underline;
+  text-shadow: 2px 2px gray;
+  font-style: oblique;
+  padding-top: 150px;
+  font-family: "Times New Roman", Times, serif
+  width:150px;
+  margin-bottom:10px;
+}
+
+h2 {
+  text-align: center
+}
