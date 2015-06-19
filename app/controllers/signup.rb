@@ -8,7 +8,7 @@ post '/signup' do
     #set a session now that they are logged in
     if @user.save
       session[:user_id] = @user.id
-      redirect '/'
+      redirect '/survey'
     end
   end
   @error = "Sorry! Your username, or password, or BOTH are incorrect."

@@ -1,0 +1,14 @@
+
+<div class='survey_list'>
+  <h1> List of available surveys</h1>
+
+ <%= erb :"/survey/new" %>
+
+  <% @surveys.each do |survey| %>
+  <article>
+    <a href= "/survey/<%= survey.id %>" > <%= survey.name %> </a>
+      <!-- if user.id == survey.user_id -->
+  <a href="/survey/<%= survey.id %>"></a>
+  <% end %>
+  </article>
+</div>
