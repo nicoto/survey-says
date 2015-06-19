@@ -5,7 +5,7 @@ require 'json'
  get '/survey' do
   p params
     @surveys = Survey.all
-    erb :'/survey/list'
+    erb :"/survey/list"
 end
 
 # get '/survey/new' do
@@ -13,13 +13,14 @@ end
 # end
 
 post '/survey/new' do
+  p "*" * 100
   p params
   survey = Survey.new(name: params[:name], user_id: current_user.id)
   if survey.save
-    redirect '/survey'
+    p "*" * 100
+    erb :"survey/_list_new", locals: {survey: survey}, layout: false
   else
-    @error = "Entry invalid"
-    erb :"/survey"
+    "this is wrong"
   end
 end
 
