@@ -14,9 +14,18 @@
 </div>
 
 <div class="list_questions">
-  <% @questions.each do |question|%>
-    <%= erb :"survey/_list_question", locals:{ question: question} %>
-  <% end %>
+  <form action="/survey/<%= @survey.id %>/results" method="post">
+
+    <% @questions.each do |question|%>
+      <%= erb :"survey/_list_question", locals:{ question: question} %>
+    <% end %>
+
+    <% if current_user.id != @survey.user_id %>
+      <input type="submit" value="Submit Survey" >
+    <% end %>
+
+  </form>
+
 </div>
 
 

@@ -43,6 +43,28 @@ post '/survey/:id' do
 end
 
 
+get '/survey/:id/results' do
+  @questions_for_the_survey = Question.where(survey_id: params[:id])
+  @result = SelectedAnswer.where(question_id: params[:id])
+  erb :"survey/result"
+end
+
+post '/survey/:id/results' do
+  SelectedAnswer.transaction do
+    params[:questions].each do |question_id, answer_id|
+      selected_answer = SelectedAnswer.where(
+        user_id: current_user.id,
+        question_id: question_id,
+      ).first_or_initialize
+      selected_answer.answer_id = answer_id;
+      selected_answer.save!
+    end
+  end
+
+  redirect to("/survey/#{param[:id]}/results")
+end
+
+
 
 
 

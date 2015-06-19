@@ -2,7 +2,7 @@
   <h4> <%= question.question %> </h4>
   <% question.answers.each do |answer|  %>
     <div>
-      <input type="radio" name="question-<%= question.id %>" value="<%= answer.content %>">
+      <input type="radio" name="questions[<%= question.id %>]" value="<%= answer.id %>">
         <%= answer.content %>
       </input>
     </div>
