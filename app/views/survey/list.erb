@@ -2,6 +2,8 @@
 <div class='survey_list'>
   <h1> List of available surveys</h1>
 
+ <%= erb :"/survey/new", layout: false %>
+
   <% @surveys.each do |survey| %>
   <article>
     <a href= "/survey/<%= survey.id %>" > <%= survey.name %> </a>
@@ -11,7 +13,8 @@
   </article>
 
 </div>
-<div class="survey_nav">
+<!-- <div class="survey_nav">
   <a href="/survey/new">Create a new Survey</a>
 
 </div>
+ -->
