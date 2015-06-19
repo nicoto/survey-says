@@ -26,6 +26,10 @@ function bindEvents() {
       console.log('done yay!!!!!');
       console.log(response);
       //// answer = thing clicked on
+      // var finalContent = buildTodo(response['content']);
+      // $('.todo_list').append(finalContent);
+      // $('.todo').val('');
+      //  the above is from the ajax breakout
     });
     request.fail(function(){
       console.log('fail!!!!!!!!!');
