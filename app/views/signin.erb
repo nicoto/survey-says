@@ -1,0 +1,14 @@
+<div class="container">
+  <div id="home">
+    <img class="home_image" src ="http://i.imgur.com/wTBHrB1.jpg" align="middle"/>
+    <h2>Please SignIn!</h2>
+    <p><%= @errors %></p>
+     <form action="/signin" method="post">
+      <input class="signup" type="text" name="username" placeholder="Username" />
+      <input class="signup" id="pw" type="password" name="password_hash" placeholder="Password" />
+      <input class="signup" type="submit" value="Sign In" />
+    </form>
+
+     <form action="/signup"><input class="signup" class="homes" type="submit" value="Create New User" /></form>
+   </div>
+</div>
