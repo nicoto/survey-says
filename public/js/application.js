@@ -15,6 +15,8 @@ $(document).ready(function() {
     request.done(function(response){
       // console.log(response);
       $('.list_questions').append(response);
+      $('form.add_question')[0].reset();
+
     });
 
     request.fail(function(response){
@@ -35,9 +37,8 @@ $(document).ready(function() {
       data: form.serialize(),
     });
     request.done(function(response){
-      console.log(response);
-      debugger
       $('.survey_list').append(response);
+      $('form.create_new_survey')[0].reset();
     });
 
     request.fail(function(response){
