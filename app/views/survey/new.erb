@@ -1,0 +1,9 @@
+<% if @error %>
+  <h3><%= @error %><h3>
+<% end %>
+
+<h1>Create a new survey!</h1>
+<form class="create_new_survey" method="post" action="/survey/new" >
+  <input type="text" name="name" placeholder="survey title" >
+  <input type="submit" value="create new survey" >
+</form>

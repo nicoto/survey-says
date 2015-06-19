@@ -1,0 +1,9 @@
+<div class='survey_list'>
+  <h1> List of available surveys</h1>
+
+  <% @surveys.each do |survey| %>
+  <article>
+    <a href= "/survey/<%= survey.id %>" > <%= survey.name %> </a>
+  <% end %>
+  </article>
+</div>
